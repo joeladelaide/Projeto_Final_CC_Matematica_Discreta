@@ -52,6 +52,92 @@ def printarPermutacoes(lista, qntPermutacao):
 def quantidadePermutacoes(qntItens, qntPermutacao):
     return (math.factorial(qntItens) / math.factorial(qntItens - qntPermutacao))
 
+
+def printarPrincipioProduto(qntConjuntos, itensConjunto, indices):
+
+    if(qntConjuntos == 1):
+        print(itensConjunto)
+
+    elif(qntConjuntos == 2):
+
+        a = indices[0]
+        b = indices[1]
+
+        for i in range(a):
+            for j in range(b):
+                print(itensConjunto[i] + itensConjunto[j+a] )
+    
+    elif(qntConjuntos == 3):
+
+        a = indices[0]
+        b = indices[1]
+        c = indices[2]
+
+        for i in range(a):
+            for j in range(b):
+                for k in range(c):
+                    print(itensConjunto[i] + itensConjunto[j+a] +  itensConjunto[k+a+b])
+
+    elif(qntConjuntos == 4):
+
+        a = indices[0]
+        b = indices[1]
+        c = indices[2]
+        d = indices[3]
+
+        for i in range(a):
+            for j in range(b):
+                for k in range(c):
+                    for l in range(d):
+                        print(itensConjunto[i] + itensConjunto[j+a] +  itensConjunto[k+a+b] + itensConjunto[j+a+b+c] )
+    
+    elif(qntConjuntos == 5):
+
+        a = indices[0]
+        b = indices[1]
+        c = indices[2]
+        d = indices[3]
+        e = indices[4]
+
+        for i in range(a):
+            for j in range(b):
+                for k in range(c):
+                    for l in range(d):
+                        for m in range(e):
+                            print(itensConjunto[i] + itensConjunto[j+a] +  itensConjunto[k+a+b] + itensConjunto[l+a+b+c] +  itensConjunto[m+a+b+c+d])
+
+
+def multiplicacaoLista(indices):
+
+    multiplicacao = 1
+    for i in indices:
+        multiplicacao = multiplicacao * i
+    
+    return multiplicacao
+
+
+def opcao02():
+    print('\n*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-')
+    print('     Princípio da Regra da Produto      ')
+    print('*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-')
+
+    itensConjunto = []
+    indices = []
+
+    qntConjuntos = int(input('\nQuantidade de Conjuntos: '))
+
+    for i in range(qntConjuntos):
+        qnt = int(input('\nQuantidade de entradas do conjunto %d: ' % (i+1)))
+        indices.append(qnt)
+        for j in range(qnt):
+            entrada = input('Insira o elemento %d do conjunto %d: ' % ((j+1),(i+1)))
+            itensConjunto.append(entrada)
+
+    print('\nPrincípio da Regra do Produto:')
+    print('Quantidade de Combinações: %d' % multiplicacaoLista(indices))
+    print('Combinações: ')
+    printarPrincipioProduto(qntConjuntos, itensConjunto, indices)
+
 def opcao03():
 
     print('\n*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-')
@@ -103,7 +189,7 @@ def main():
         if (opcao == 1):
             opcao01()
         elif (opcao == 2):
-            pass
+            opcao02()
         elif (opcao == 3):
             opcao03()
         elif (opcao == 4):
