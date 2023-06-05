@@ -1,4 +1,5 @@
 import os
+import math
 
 def limparTela():
     os.system("cls")
@@ -39,6 +40,27 @@ def opcao01():
     print('Combinações: ')
     print(itensConjunto)
 
+def opcao04():
+
+    print('\n*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-')
+    print('Permutação Utilizando as Letras de uma Palavra')
+    print('*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-\n')
+
+    palavra = input('Digite a palavra a ser permutada: ')
+
+    print('\nPermutação Utilizando as Letras de uma Palavra:')
+    print('Quantidade de Combinações: %d' % math.factorial(len(palavra)))
+    print('Combinações: ')
+    permutaPalavra(palavra)
+
+
+def permutaPalavra(palavra, palavra1 = ''):
+    if len(palavra) == 0:
+        print(palavra1)
+    else:
+        for i in range(len(palavra)):
+            permutaPalavra(palavra[:i]+palavra[(i+1):],palavra1+palavra[i])
+
     
 def main():
     while True:
@@ -53,7 +75,7 @@ def main():
         elif (opcao == 3):
             pass
         elif (opcao == 4):
-            pass
+            opcao04()
         elif (opcao == 5):
             pass
         elif (opcao == 6):
