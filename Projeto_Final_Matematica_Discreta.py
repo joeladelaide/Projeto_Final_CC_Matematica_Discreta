@@ -1,5 +1,7 @@
-import os
 import math
+import os
+from itertools import permutations
+
 
 def limparTela():
     os.system("cls")
@@ -40,6 +42,36 @@ def opcao01():
     print('Combinações: ')
     print(itensConjunto)
 
+def printarPermutacoes(lista, qntPermutacao):
+
+    perm = permutations(lista, qntPermutacao)
+
+    for i in list(perm):
+        print(i) 
+
+def quantidadePermutacoes(qntItens, qntPermutacao):
+    return (math.factorial(qntItens) / math.factorial(qntItens - qntPermutacao))
+
+def opcao03():
+
+    print('\n*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-')
+    print('                   Permutação                   ')
+    print('*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-\n')
+
+    qntItens = int(input('Quantidade de itens da lista gostaria de inserir: '))
+    lista = []
+
+    for i in range(qntItens):
+        item = input('Insira o item %d: ' %i)
+        lista.append(item)
+
+    qntPermutacao = int(input('\nQuantidade de permutacões desejadas por vez: '))
+
+    print('\nPermutação:')
+    print('Quantidade de Combinações: %d ' %quantidadePermutacoes(qntItens, qntPermutacao) )
+    print('Combinações: ')
+    printarPermutacoes(lista, qntPermutacao)
+
 def opcao04():
 
     print('\n*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-')
@@ -73,7 +105,7 @@ def main():
         elif (opcao == 2):
             pass
         elif (opcao == 3):
-            pass
+            opcao03()
         elif (opcao == 4):
             opcao04()
         elif (opcao == 5):
