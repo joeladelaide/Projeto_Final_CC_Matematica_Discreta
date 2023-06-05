@@ -15,10 +15,31 @@ def printMenu():
     print('[5] - Amostragem com Reposição')
     print('[6] - Amostragem sem Reposição')
     print('[7] - Combinações')
-    print()
     print('[0] - SAIR')
 
+def opcao01():
+    print('\n*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-')
+    print('     Princípio da Regra da Soma       ')
+    print('*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-')
 
+    itensConjunto = []
+    indices = []
+
+    qntConjuntos = int(input('\nQuantidade de Conjuntos: '))
+
+    for i in range(qntConjuntos):
+        qnt = int(input('\nQuantidade de entradas do conjunto %d: ' % (i+1)))
+        indices.append(qnt)
+        for j in range(qnt):
+            entrada = input('Insira o elemento %d do conjunto %d: ' % ((j+1),(i+1)))
+            itensConjunto.append(entrada)
+
+    print('\nPrincípio da Regra da Soma:')
+    print('Quantidade de Combinações: %d' % sum(indices))
+    print('Combinações: ')
+    print(itensConjunto)
+
+    
 def main():
     while True:
         
@@ -26,7 +47,7 @@ def main():
         opcao = int(input('Digite sua Opção: '))
 
         if (opcao == 1):
-            pass
+            opcao01()
         elif (opcao == 2):
             pass
         elif (opcao == 3):
@@ -45,5 +66,4 @@ def main():
             print('Opção Inválida!')
             main()
 
-limparTela()
 main()
