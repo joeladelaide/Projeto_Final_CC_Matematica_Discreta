@@ -3,6 +3,7 @@ import math
 import os
 import random
 from itertools import permutations
+from time import sleep
 
 import numpy as np
 
@@ -10,11 +11,27 @@ import numpy as np
 def limparTela():
     os.system("cls")
 
+def printInicial():
+    print("\t\t\tCENTRO UNIVERSITÁRIO DE JOÃO PESSOA - UNIPÊ\n");
+    sleep(2)
+    print("\t\t\tCIÊNCIAS DA COMPUTAÇÃO\n")
+    sleep(2)
+    print("\t\t\tPROJETO FINAL - MATEMÁTICA DISCRETA\n")
+    sleep(2)
+    print("\t\t\tEQUIPE:\n")
+    sleep(2)
+    print("\t\t\tJoel Adelaide Medeiros - RGM: 29799384\n")
+    sleep(2)
+    print("\t\t\tMarcos Barbosa Vieira Filho - RGM: 30174503\n")
+    sleep(2)
+    limparTela()
+
+
 def printMenu():
     print('*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-')
     print('                MENU                  ')
-    print('*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-')
-    print('OPÇÕES: ')
+    print('*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-\n')
+    print('               OPÇÕES:                  ')
     print('[1] - Princípio da Regra da Soma')
     print('[2] - Princípio da Regra do Produto')
     print('[3] - Permutação')
@@ -22,7 +39,7 @@ def printMenu():
     print('[5] - Amostragem com Reposição')
     print('[6] - Amostragem sem Reposição')
     print('[7] - Combinações')
-    print('[0] - SAIR')
+    print('[0] - SAIR\n')
 
 def opcao01():
     print('\n*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-')
@@ -45,6 +62,8 @@ def opcao01():
     print('Quantidade de Combinações: %d' % sum(indices))
     print('Combinações: ')
     print(itensConjunto)
+
+    input()
 
 def printarPermutacoes(lista, qntPermutacao):
 
@@ -141,6 +160,7 @@ def opcao02():
     print('Quantidade de Combinações: %d' % multiplicacaoLista(indices))
     print('Combinações: ')
     printarPrincipioProduto(qntConjuntos, itensConjunto, indices)
+    input()
 
 def opcao03():
 
@@ -161,6 +181,7 @@ def opcao03():
     print('Quantidade de Combinações: %d ' %quantidadePermutacoes(qntItens, qntPermutacao) )
     print('Combinações: ')
     printarPermutacoes(lista, qntPermutacao)
+    input()
 
 def opcao04():
 
@@ -174,6 +195,7 @@ def opcao04():
     print('Quantidade de Combinações: %d' % math.factorial(len(palavra)))
     print('Combinações: ')
     permutaPalavra(palavra)
+    input()
 
 
 def permutaPalavra(palavra, palavra1 = ''):
@@ -196,6 +218,7 @@ def opcao05():
     for i in range(quantidade_amostras):
         amostra = random.choices(populacao, k=len(populacao))
         print("Amostra", i+1, "com reposição:", amostra)
+    input()
 
 def opcao06():
 
@@ -209,6 +232,7 @@ def opcao06():
     for i in range(quantidade_amostras):
         amostra = random.sample(populacao, k=len(populacao))
     print("Amostra numero", i+1, "sem reposição:", amostra[:quantidade_amostras])
+    input()
 
 def opcao07():
 
@@ -225,27 +249,36 @@ def opcao07():
     print("Combinações de", num_opcoes, "opções:")
     for combinacao in combinacoes:   
         print(combinacao)
+    input()
    
 def main():
     while True:
-        
+        limparTela()
+        printInicial()
         printMenu()
         opcao = int(input('Digite sua Opção: '))
 
         if (opcao == 1):
+            limparTela()
             opcao01()
         elif (opcao == 2):
+            limparTela()
             opcao02()
         elif (opcao == 3):
+            limparTela()
             opcao03()
         elif (opcao == 4):
+            limparTela()
             opcao04()
         elif (opcao == 5):
-            pass
+            limparTela()
+            opcao05()
         elif (opcao == 6):
-            pass
+            limparTela()
+            opcao06()
         elif (opcao == 7):
-            pass
+            limparTela()
+            opcao07()
         elif (opcao == 0):
             break
         else:
