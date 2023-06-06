@@ -1,5 +1,7 @@
 import math
 import os
+import numpy as np
+import random
 from itertools import permutations
 
 
@@ -179,7 +181,47 @@ def permutaPalavra(palavra, palavra1 = ''):
         for i in range(len(palavra)):
             permutaPalavra(palavra[:i]+palavra[(i+1):],palavra1+palavra[i])
 
-    
+def opcao05():
+
+    print('\n*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-')
+    print('            Amostragem com reposição            ')
+    print('*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-\n')
+
+    quantidade_amostras = int(input("Digite a quantidade de amostras desejadas: "))
+
+    populacao = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+    for i in range(quantidade_amostras):
+        amostra = random.choices(populacao, k=len(populacao))
+        print("Amostra", i+1, "com reposição:", amostra)
+
+def opcao06():
+
+    print('\n*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-')
+    print('           Amostragem sem reposição             ')
+    print('*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-\n')
+    quantidade_amostras = int(input("Digite a quantidade de amostras desejadas: "))
+
+    populacao = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+    for i in range(quantidade_amostras):
+    amostra = random.sample(populacao, k=len(populacao))
+    print("Amostra numero", i+1, "sem reposição:", amostra[:quantidade_amostras])
+def opcao07():
+
+    print('\n*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-')
+    print('                  Combinações                   ')
+    print('*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-\n')
+    num_opcoes = int(input("Digite o número de opções para as combinações: "))
+
+    populacao = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+    combinacoes = list(itertools.combinations(populacao, num_opcoes))
+
+    print("Combinações de", num_opcoes, "opções:")
+    for combinacao in combinacoes:
+    print(combinacao)
+   
 def main():
     while True:
         
