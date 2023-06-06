@@ -3,6 +3,7 @@ import os
 import numpy as np
 import random
 from itertools import permutations
+import itertools
 
 
 def limparTela():
@@ -205,13 +206,14 @@ def opcao06():
     populacao = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
     for i in range(quantidade_amostras):
-    amostra = random.sample(populacao, k=len(populacao))
+        amostra = random.sample(populacao, k=len(populacao))
     print("Amostra numero", i+1, "sem reposição:", amostra[:quantidade_amostras])
 def opcao07():
 
     print('\n*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-')
     print('                  Combinações                   ')
     print('*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-\n')
+
     num_opcoes = int(input("Digite o número de opções para as combinações: "))
 
     populacao = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
@@ -219,8 +221,8 @@ def opcao07():
     combinacoes = list(itertools.combinations(populacao, num_opcoes))
 
     print("Combinações de", num_opcoes, "opções:")
-    for combinacao in combinacoes:
-    print(combinacao)
+    for combinacao in combinacoes:   
+        print(combinacao)
    
 def main():
     while True:
