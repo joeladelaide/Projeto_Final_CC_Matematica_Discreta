@@ -1,9 +1,10 @@
+import itertools
 import math
 import os
-import numpy as np
 import random
 from itertools import permutations
-import itertools
+
+import numpy as np
 
 
 def limparTela():
@@ -208,6 +209,7 @@ def opcao06():
     for i in range(quantidade_amostras):
         amostra = random.sample(populacao, k=len(populacao))
     print("Amostra numero", i+1, "sem reposição:", amostra[:quantidade_amostras])
+
 def opcao07():
 
     print('\n*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-')
