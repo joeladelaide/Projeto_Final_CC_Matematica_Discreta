@@ -211,13 +211,28 @@ def opcao05():
     print('            Amostragem com reposição            ')
     print('*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-\n')
 
+    # Solicitar a quantidade de amostras desejadas
     quantidade_amostras = int(input("Digite a quantidade de amostras desejadas: "))
 
-    populacao = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    # Criar uma lista para armazenar as amostras
+    amostras = []
 
+    # Obter a quantidade de elementos em cada amostra
     for i in range(quantidade_amostras):
-        amostra = random.choices(populacao, k=len(populacao))
-        print("Amostra", i+1, "com reposição:", amostra)
+        quantidade_elementos = int(input("Digite a quantidade de elementos para a amostra {}: ".format(i+1)))
+        amostra = []
+
+        # Obter cada elemento da amostra
+        for j in range(quantidade_elementos):
+            elemento = input("Digite o elemento {}: ".format(j+1))
+            amostra.append(elemento)
+
+        amostras.append(amostra)
+
+    # Realizar as amostragens com reposição
+    for i, amostra in enumerate(amostras):
+        amostra_aleatoria = random.choices(amostra, k=len(amostra))
+        print("Amostra", i+1, "com reposição:", amostra_aleatoria)
     input()
 
 def opcao06():
@@ -225,13 +240,25 @@ def opcao06():
     print('\n*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-')
     print('           Amostragem sem reposição             ')
     print('*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-\n')
+    import random
+
     quantidade_amostras = int(input("Digite a quantidade de amostras desejadas: "))
 
-    populacao = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    amostras = []
 
     for i in range(quantidade_amostras):
-        amostra = random.sample(populacao, k=len(populacao))
-    print("Amostra numero", i+1, "sem reposição:", amostra[:quantidade_amostras])
+        quantidade_elementos = int(input("Digite a quantidade de elementos para a amostra {}: ".format(i+1)))
+        amostra = []
+    for j in range(quantidade_elementos):
+        elemento = input("Digite o elemento {}: ".format(j+1))
+        amostra.append(elemento)
+
+    amostras.append(amostra)
+
+    for i, amostra in enumerate(amostras):
+        amostra_aleatoria = random.sample(amostra, k=len(amostra))
+        print("Amostra", i+1, "sem reposição:", amostra_aleatoria)
+
     input()
 
 def opcao07():
@@ -240,17 +267,19 @@ def opcao07():
     print('                  Combinações                   ')
     print('*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-\n')
 
-    num_opcoes = int(input("Digite o número de opções para as combinações: "))
+    import itertools
 
-    populacao = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    num_combinacoes = int(input("Digite o número de combinações desejadas: "))
 
-    combinacoes = list(itertools.combinations(populacao, num_opcoes))
+    elementos_input = input("Digite os elementos separados por vírgula: ")
+    elementos = [elemento.strip() for elemento in elementos_input.split(",")]
 
-    print("Combinações de", num_opcoes, "opções:")
-    for combinacao in combinacoes:   
+    combinacoes = list(itertools.combinations(elementos, num_combinacoes))
+    print(f"\nAs {num_combinacoes} combinações possíveis são:")
+    for combinacao in combinacoes:
         print(combinacao)
     input()
-   
+
 def main():
     while True:
         limparTela()
