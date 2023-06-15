@@ -2,8 +2,8 @@
 import itertools
 import math
 import os
-import random
-from itertools import permutations
+import random # Importa o módulo random para realizar a amostragem
+from itertools import permutations # Importa o módulo itertools para gerar as combinações
 from time import sleep
 
 import numpy as np
@@ -256,15 +256,19 @@ def opcao06():
 
     amostras = []
 
+    # Obter as amostras desejadas
     for i in range(quantidade_amostras):
         quantidade_elementos = int(input("Digite a quantidade de elementos para a amostra {}: ".format(i+1)))
         amostra = []
+
+    # Obter cada elemento da amostra
     for j in range(quantidade_elementos):
         elemento = input("Digite o elemento {}: ".format(j+1))
         amostra.append(elemento)
 
     amostras.append(amostra)
 
+    # Realizar a amostragem sem reposição
     for i, amostra in enumerate(amostras):
         amostra_aleatoria = random.sample(amostra, k=len(amostra))
         print("Amostra", i+1, "sem reposição:", amostra_aleatoria)
@@ -280,6 +284,7 @@ def opcao07():
 
     import itertools
 
+    # Obter o número de combinações e os elementos, cada um armazenado na sua variável
     num_combinacoes = int(input("Digite o número de combinações desejadas: "))
 
     elementos_input = input("Digite os elementos separados por vírgula: ")
@@ -287,6 +292,7 @@ def opcao07():
 
     combinacoes = list(itertools.combinations(elementos, num_combinacoes))
     print(f"\nAs {num_combinacoes} combinações possíveis são:")
+     # printar as combinações ultilizando um for
     for combinacao in combinacoes:
         print(combinacao)
     input()
@@ -295,13 +301,13 @@ def opcao07():
 #MAIN()
 def main():
     while True:
-        limparTela()
+        limparTela() # Limpa a tela
         printMenu()
         opcao = int(input('Digite sua Opção: '))
 
         if (opcao == 1):
             limparTela()
-            opcao01()
+            opcao01() # Executa a função correspondente à opção 1, assim como nas proximas escolhas ate 7, sendo 0 a saida da condicional
         elif (opcao == 2):
             limparTela()
             opcao02()
@@ -325,7 +331,7 @@ def main():
             break
         else:
             print('Opção Inválida!')
-            main()
+            main() # Chama a função main() novamente em caso de opção inválida
 
 #CÓDIGOS INICIALIZADORES
 limparTela()
