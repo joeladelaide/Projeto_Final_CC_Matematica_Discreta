@@ -1,3 +1,4 @@
+# IMPORT DE BIBLIOTECAS PYTHON
 import itertools
 import math
 import os
@@ -8,62 +9,10 @@ from time import sleep
 import numpy as np
 
 
-def limparTela():
+#MÉTODOS AUXILIARES
+#Método para limpar o terminal 
+def limparTela():   
     os.system("cls")
-
-def printInicial():
-    print("\t\t\tCENTRO UNIVERSITÁRIO DE JOÃO PESSOA - UNIPÊ\n");
-    sleep(2)
-    print("\t\t\tCIÊNCIAS DA COMPUTAÇÃO\n")
-    sleep(2)
-    print("\t\t\tPROJETO FINAL - MATEMÁTICA DISCRETA\n")
-    sleep(2)
-    print("\t\t\tEQUIPE:\n")
-    sleep(2)
-    print("\t\t\tJoel Adelaide Medeiros - RGM: 29799384\n")
-    sleep(2)
-    print("\t\t\tMarcos Barbosa Vieira Filho - RGM: 30174503\n")
-    sleep(2)
-    limparTela()
-
-
-def printMenu():
-    print('*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-')
-    print('                MENU                  ')
-    print('*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-\n')
-    print('               OPÇÕES:                  ')
-    print('[1] - Princípio da Regra da Soma')
-    print('[2] - Princípio da Regra do Produto')
-    print('[3] - Permutação')
-    print('[4] - Permutação Utilizando as Letras de uma Palavra')
-    print('[5] - Amostragem com Reposição')
-    print('[6] - Amostragem sem Reposição')
-    print('[7] - Combinações')
-    print('[0] - SAIR\n')
-
-def opcao01():
-    print('\n*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-')
-    print('     Princípio da Regra da Soma       ')
-    print('*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-')
-
-    itensConjunto = []
-    indices = []
-
-    qntConjuntos = int(input('\nQuantidade de Conjuntos: '))
-
-    for i in range(qntConjuntos):
-        qnt = int(input('\nQuantidade de entradas do conjunto %d: ' % (i+1)))
-        indices.append(qnt)
-        for j in range(qnt):
-            entrada = input('Insira o elemento %d do conjunto %d: ' % ((j+1),(i+1)))
-            itensConjunto.append(entrada)
-
-    print('\nPrincípio da Regra da Soma:')
-    print('Quantidade de Combinações: %d' % sum(indices))
-    print('Combinações: ')
-    print(itensConjunto)
-
-    input()
 
 def printarPermutacoes(lista, qntPermutacao):
 
@@ -74,7 +23,6 @@ def printarPermutacoes(lista, qntPermutacao):
 
 def quantidadePermutacoes(qntItens, qntPermutacao):
     return (math.factorial(qntItens) / math.factorial(qntItens - qntPermutacao))
-
 
 def printarPrincipioProduto(qntConjuntos, itensConjunto, indices):
 
@@ -129,7 +77,6 @@ def printarPrincipioProduto(qntConjuntos, itensConjunto, indices):
                         for m in range(e):
                             print(itensConjunto[i] + itensConjunto[j+a] +  itensConjunto[k+a+b] + itensConjunto[l+a+b+c] +  itensConjunto[m+a+b+c+d])
 
-
 def multiplicacaoLista(indices):
 
     multiplicacao = 1
@@ -138,7 +85,74 @@ def multiplicacaoLista(indices):
     
     return multiplicacao
 
+def permutaPalavra(palavra, palavra1 = ''):
+    if len(palavra) == 0:
+        print(palavra1)
+    else:
+        for i in range(len(palavra)):
+            permutaPalavra(palavra[:i]+palavra[(i+1):],palavra1+palavra[i])
 
+
+#MÉTODOS DE PRINT
+#Print inicial contendo informações dos desenvolvedores
+def printInicial():   
+    print("\t\t\tCENTRO UNIVERSITÁRIO DE JOÃO PESSOA - UNIPÊ\n");
+    sleep(2)
+    print("\t\t\tCIÊNCIAS DA COMPUTAÇÃO\n")
+    sleep(2)
+    print("\t\t\tPROJETO FINAL - MATEMÁTICA DISCRETA\n")
+    sleep(2)
+    print("\t\t\tEQUIPE:\n")
+    sleep(2)
+    print("\t\t\tJoel Adelaide Medeiros - RGM: 29799384\n")
+    sleep(2)
+    print("\t\t\tMarcos Barbosa Vieira Filho - RGM: 30174503\n")
+    sleep(2)
+    limparTela()
+
+#Print do menu inicial
+def printMenu():
+    print('*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-')
+    print('                MENU                  ')
+    print('*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-\n')
+    print('               OPÇÕES:                  ')
+    print('[1] - Princípio da Regra da Soma')
+    print('[2] - Princípio da Regra do Produto')
+    print('[3] - Permutação')
+    print('[4] - Permutação Utilizando as Letras de uma Palavra')
+    print('[5] - Amostragem com Reposição')
+    print('[6] - Amostragem sem Reposição')
+    print('[7] - Combinações')
+    print('[0] - SAIR\n')
+
+
+#FUNÇÕES PRINCIPAIS
+#Opção 01 - Princípio da Regra da Soma
+def opcao01():
+    print('\n*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-')
+    print('     Princípio da Regra da Soma       ')
+    print('*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-')
+
+    itensConjunto = []
+    indices = []
+
+    qntConjuntos = int(input('\nQuantidade de Conjuntos: '))
+
+    for i in range(qntConjuntos):
+        qnt = int(input('\nQuantidade de entradas do conjunto %d: ' % (i+1)))
+        indices.append(qnt)
+        for j in range(qnt):
+            entrada = input('Insira o elemento %d do conjunto %d: ' % ((j+1),(i+1)))
+            itensConjunto.append(entrada)
+
+    print('\nPrincípio da Regra da Soma:')
+    print('Quantidade de Combinações: %d' % sum(indices))
+    print('Combinações: ')
+    print(itensConjunto)
+
+    input()
+
+#Opção 02 - Princípio da Regra da Produto
 def opcao02():
     print('\n*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-')
     print('     Princípio da Regra da Produto      ')
@@ -162,6 +176,7 @@ def opcao02():
     printarPrincipioProduto(qntConjuntos, itensConjunto, indices)
     input()
 
+#Opção 03 - Permutação
 def opcao03():
 
     print('\n*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-')
@@ -183,6 +198,7 @@ def opcao03():
     printarPermutacoes(lista, qntPermutacao)
     input()
 
+#Opção 04 - Permutação Utilizando as Letras de uma Palavra
 def opcao04():
 
     print('\n*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-')
@@ -197,14 +213,7 @@ def opcao04():
     permutaPalavra(palavra)
     input()
 
-
-def permutaPalavra(palavra, palavra1 = ''):
-    if len(palavra) == 0:
-        print(palavra1)
-    else:
-        for i in range(len(palavra)):
-            permutaPalavra(palavra[:i]+palavra[(i+1):],palavra1+palavra[i])
-
+#Opção 04 - Amostragem com reposição
 def opcao05():
 
     print('\n*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-')
@@ -219,7 +228,7 @@ def opcao05():
 
     # Obter a quantidade de elementos em cada amostra
     for i in range(quantidade_amostras):
-        quantidade_elementos = int(input("Digite a quantidade de elementos para a amostra {}: ".format(i+1)))
+        quantidade_elementos = int(input("\nDigite a quantidade de elementos para a amostra {}: ".format(i+1)))
         amostra = []
 
         # Obter cada elemento da amostra
@@ -235,6 +244,7 @@ def opcao05():
         print("Amostra", i+1, "com reposição:", amostra_aleatoria)
     input()
 
+#Opção 06 - Amostragem sem reposição
 def opcao06():
 
     print('\n*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-')
@@ -261,6 +271,7 @@ def opcao06():
 
     input()
 
+#Opção 07 - Combinações
 def opcao07():
 
     print('\n*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-')
@@ -280,10 +291,11 @@ def opcao07():
         print(combinacao)
     input()
 
+
+#MAIN()
 def main():
     while True:
         limparTela()
-        printInicial()
         printMenu()
         opcao = int(input('Digite sua Opção: '))
 
@@ -309,9 +321,13 @@ def main():
             limparTela()
             opcao07()
         elif (opcao == 0):
+            print("\nSaindo do Código......")
             break
         else:
             print('Opção Inválida!')
             main()
 
+#CÓDIGOS INICIALIZADORES
+limparTela()
+printInicial()
 main()
